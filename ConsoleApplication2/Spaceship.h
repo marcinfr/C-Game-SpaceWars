@@ -2,12 +2,15 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Helpers.h"
 
 class Spaceship : public sf::Drawable
 {
 
 public:
-	Spaceship();
+	Spaceship() {
+		this->shape = new Rectangle(width, height);
+	}
 	~Spaceship() = default;
 
 	float posX = 0;
@@ -15,6 +18,7 @@ public:
 	int width = 80;
 	int height = 80;
 	int life = 100;
+	Rectangle* shape = NULL;
 
 	int getCenterX()
 	{
@@ -56,6 +60,7 @@ public:
 		if (abs(currentSpeedY) < speedStep) {
 			currentSpeedY = 0;
 		}
+		shape->setPosition(posX, posY);
 	}
 
 	void moveDown()

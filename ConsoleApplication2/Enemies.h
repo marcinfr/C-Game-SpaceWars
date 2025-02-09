@@ -1,10 +1,10 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "Helpers.h"
 #include "Enemy.h"
 #include "MeteorEnemy.h"
 #include "GunShipEnemy.h"
-#include <random>
 
 class EnemyWrapper
 {
@@ -24,19 +24,14 @@ public:
 
 	void generateEnemy()
 	{
-		std::random_device rd;
-		std::mt19937 gen(rd());
-		std::uniform_int_distribution<> randomY(0, this->windowY);
+		int enemyType = RandomHelper::getInteger(0, 100);
+		int randomPosY = RandomHelper::getInteger(0, this->windowY);
 
-		std::uniform_int_distribution<> randomEnemy(0, 100);
-		int enemyType = randomEnemy(gen);
-
-		Enemy* enemy = new Enemy(this->windowX, randomY(gen));
-
+		Enemy* enemy = new Enemy(this->windowX, randomPosY);
 		if (enemyType < 30) {
-			enemy = new GunShipEnemy(this->windowX, randomY(gen));
+			enemy = new GunShipEnemy(this->windowX, randomPosY);
 		} else if (enemyType < 60) {
-			enemy = new MeteorEnemy(this->windowX, randomY(gen));
+			enemy = new MeteorEnemy(this->windowX, randomPosY);
 		}
 
 		EnemyWrapper EnemyWrapper(enemy);
@@ -48,14 +43,32 @@ public:
 	}
 	void move()
 	{
-		if (enemies.size() < maxEnemyQty) {
+		std::vector<EnemyWrapper> currentenemies;
+
+		int currrentEnemiesSpacehipQty = 0;
+
+		for (auto& enemyWrapper : enemies) {
+			currentenemies.push_back(enemyWrapper);
+			if (enemyWrapper.enemy->isSpaceship()) {
+				currrentEnemiesSpacehipQty++;
+			}
+		}
+
+		if (currrentEnemiesSpacehipQty < maxEnemyQty) {
 			generateEnemy();
 		}
 
-		for (auto& enemyWrapper : enemies) {
+		for (auto& enemyWrapper : currentenemies) {
 			enemyWrapper.enemy->move();
+
 			if (enemyWrapper.enemy->hasCollision(playerSpacehip)) {
 				enemyWrapper.enemy->onCollision(playerSpacehip);
+			}
+
+			if (enemyWrapper.enemy->canShoot()) {
+				Enemy* bullet = enemyWrapper.enemy->getBulllet();
+				EnemyWrapper bullerWrapper(bullet);
+				enemies.push_back(bullerWrapper);
 			}
 		}
 		

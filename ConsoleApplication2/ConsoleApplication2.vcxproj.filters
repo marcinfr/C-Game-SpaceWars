@@ -45,6 +45,12 @@
     <ClCompile Include="GunShipEnemy.cpp">
       <Filter>Pliki źródłowe\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="BulletEnemy.cpp">
+      <Filter>Pliki źródłowe\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -70,6 +76,12 @@
     </ClInclude>
     <ClInclude Include="GunShipEnemy.h">
       <Filter>Pliki nagłówkowe\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletEnemy.h">
+      <Filter>Pliki nagłówkowe\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers.h">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
