@@ -24,6 +24,7 @@
     <ProjectGuid>{38e9da3c-4913-4cb9-a073-5079bef5d572}</ProjectGuid>
     <RootNamespace>ConsoleApplication2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>SpaceWars</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -134,7 +135,7 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BulletEnemy.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="ConsoleApplication2.cpp" />
+    <ClCompile Include="SpaceWars.cpp" />
     <ClCompile Include="Enemies.cpp" />
     <ClCompile Include="GunShipEnemy.cpp" />
     <ClCompile Include="Helpers.cpp" />
