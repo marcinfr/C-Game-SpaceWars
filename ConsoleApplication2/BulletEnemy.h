@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Enemy.h"
+#include "SpaceObject.h"
 
-class BulletEnemy : public Enemy
+class BulletEnemy : public SpaceObject
 {
 public:
 	BulletEnemy(int posX, int posY);

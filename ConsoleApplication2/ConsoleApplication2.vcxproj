@@ -134,7 +134,7 @@
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BulletEnemy.cpp" />
-    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="SpaceObject.cpp" />
     <ClCompile Include="SpaceWars.cpp" />
     <ClCompile Include="Enemies.cpp" />
     <ClCompile Include="GunShipEnemy.cpp" />
@@ -146,7 +146,7 @@
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="BulletEnemy.h" />
-    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="SpaceObject.h" />
     <ClInclude Include="Enemies.h" />
     <ClInclude Include="GunShipEnemy.h" />
     <ClInclude Include="Helpers.h" />

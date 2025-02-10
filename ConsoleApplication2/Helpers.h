@@ -23,4 +23,3 @@ private:
 	float getY1();
 	float getY2();
 };
-

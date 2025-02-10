@@ -2,15 +2,15 @@
 
 #include <SFML/Graphics.hpp>
 #include "Helpers.h"
-#include "Enemy.h"
+#include "SpaceObject.h"
 #include "MeteorEnemy.h"
 #include "GunShipEnemy.h"
 
 class EnemyWrapper
 {
 public:
-	Enemy* enemy;
-	EnemyWrapper(Enemy* enemy)
+	SpaceObject* enemy;
+	EnemyWrapper(SpaceObject* enemy)
 	{
 		this->enemy = enemy;
 	}
@@ -27,7 +27,7 @@ public:
 		int enemyType = RandomHelper::getInteger(0, 100);
 		int randomPosY = RandomHelper::getInteger(0, this->windowY);
 
-		Enemy* enemy = new Enemy(this->windowX, randomPosY);
+		SpaceObject* enemy = new SpaceObject(this->windowX, randomPosY);
 		if (enemyType < 30) {
 			enemy = new GunShipEnemy(this->windowX, randomPosY);
 		} else if (enemyType < 60) {
@@ -66,7 +66,7 @@ public:
 			}
 
 			if (enemyWrapper.enemy->canShoot()) {
-				Enemy* bullet = enemyWrapper.enemy->getBulllet();
+				SpaceObject* bullet = enemyWrapper.enemy->getBulllet();
 				EnemyWrapper bullerWrapper(bullet);
 				enemies.push_back(bullerWrapper);
 			}

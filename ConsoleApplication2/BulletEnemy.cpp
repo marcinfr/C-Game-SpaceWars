@@ -1,6 +1,6 @@
 #include "BulletEnemy.h"
 
-BulletEnemy::BulletEnemy(int posX, int posY) : Enemy(posX, posY)
+BulletEnemy::BulletEnemy(int posX, int posY) : SpaceObject(posX, posY)
 {
 	width = 30;
 	height = 3;

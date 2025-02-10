@@ -1,38 +1,18 @@
 #pragma once
 
-#include "Enemy.h"
+#include "SpaceObject.h"
 #include "BulletEnemy.h"
 #include <iostream>
 
 using namespace std;
 
-class GunShipEnemy : public Enemy
+class GunShipEnemy : public SpaceObject
 {
 public:
 	GunShipEnemy(int posX, int posY);
 	~GunShipEnemy() = default;
-	void move() override
-	{
-		Enemy::move();
-	}
-	bool canShoot() override
-	{
-		if (((int) posX) % 100 == 0) {
-			if (!isShooting) {
-				isShooting = true;
-				return true;
-			}
-		} else {
-			isShooting = false;
-		}
-		return false;
-	}
-	Enemy* getBulllet() override
-	{
-		Enemy* bullet = new BulletEnemy((int)posX, (int)(posY + (height / 2)));
-		return bullet;
-	}
-private: 
+	bool canShoot() override;
+	SpaceObject* getBulllet();
 	bool isShooting = false;
 };
 

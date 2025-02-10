@@ -1,6 +1,6 @@
 #include "MeteorEnemy.h"
 
-MeteorEnemy::MeteorEnemy(int posX, int posY) : Enemy(posX, posY)
+MeteorEnemy::MeteorEnemy(int posX, int posY) : SpaceObject(posX, posY)
 {
 	width = 20;
 	height = 20;
