@@ -3,6 +3,7 @@
 #include "SpaceObject.h"
 #include "BulletEnemy.h"
 #include <iostream>
+#include "Helpers.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ public:
 	bool canShoot() override;
 	SpaceObject* getBulllet();
 	bool isShooting = false;
+private:
+	Timer* shootTimer;
 };
-
 

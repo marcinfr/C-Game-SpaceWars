@@ -23,3 +23,15 @@ private:
 	float getY1();
 	float getY2();
 };
+
+
+class Timer
+{
+public:
+	long getTimestamp();
+	void setTime(double seconds);
+	bool hasElapsed();
+private:
+	int time = 0;
+	long startTime = 0;
+};

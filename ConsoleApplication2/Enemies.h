@@ -33,7 +33,7 @@ public:
 		} else if (enemyType < 60) {
 			enemy = new MeteorEnemy(this->windowX, randomPosY);
 		}
-
+		enemy->init();
 		EnemyWrapper EnemyWrapper(enemy);
 		enemies.push_back(EnemyWrapper);
 	}
@@ -43,6 +43,11 @@ public:
 	}
 	void move()
 	{
+		if (timer->hasElapsed()) {
+			timer->setTime(10);
+			maxEnemyQty++;
+		}
+
 		std::vector<EnemyWrapper> currentenemies;
 
 		int currrentEnemiesSpacehipQty = 0;
@@ -86,7 +91,8 @@ private:
 	std::vector<EnemyWrapper> enemies;
 	int windowX;
 	int windowY;
-	int maxEnemyQty = 5;
+	Timer* timer;
+	int maxEnemyQty = 0;
 	Spaceship* playerSpacehip;
 
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override

@@ -23,6 +23,7 @@ public:
 	virtual bool canShoot();
 	virtual SpaceObject* getBulllet();
 	virtual bool isSpaceship();
+	void init();
 protected:
 	float posX = 0;
 	float posY = 0;

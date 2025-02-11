@@ -3,6 +3,9 @@
 SpaceObject::SpaceObject(int posX, int posY) {
 	this->posX = (float)posX;
 	this->posY = (float)posY;
+}
+void SpaceObject::init()
+{
 	shape = new Rectangle(width, height);
 	shape->setPosition(posX, posY);
 }
