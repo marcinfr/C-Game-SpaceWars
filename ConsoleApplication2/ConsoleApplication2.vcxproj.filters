@@ -13,14 +13,23 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Pliki źródłowe\Enemies">
-      <UniqueIdentifier>{1d42dbe6-694c-419c-9918-275c178d2d1b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Pliki nagłówkowe\Enemies">
       <UniqueIdentifier>{808ed26c-2c30-458e-a98b-2d6ad6734915}</UniqueIdentifier>
     </Filter>
     <Filter Include="Pliki nagłówkowe\SpaceObjects">
       <UniqueIdentifier>{c1bb0081-9ef8-4cae-b96e-a5284f3e8560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\SpaceObject">
+      <UniqueIdentifier>{1d42dbe6-694c-419c-9918-275c178d2d1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\SpaceObject\Spaceships">
+      <UniqueIdentifier>{71f0d839-33db-4dec-981e-8038bdcfbcc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\SpaceObject\Bullets">
+      <UniqueIdentifier>{b26f4e28-9cac-4f48-a8a5-ee774152cf34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\SpaceObject\Guns">
+      <UniqueIdentifier>{e1e33427-07d8-4af9-9327-ee4f88a21e28}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,24 +43,30 @@
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="SpaceObject.cpp">
-      <Filter>Pliki źródłowe\Enemies</Filter>
+      <Filter>Pliki źródłowe\SpaceObject</Filter>
     </ClCompile>
     <ClCompile Include="Enemies.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="MeteorEnemy.cpp">
-      <Filter>Pliki źródłowe\Enemies</Filter>
-    </ClCompile>
     <ClCompile Include="InfoBox.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="Helpers.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="MeteorEnemy.cpp">
+      <Filter>Pliki źródłowe\SpaceObject\Spaceships</Filter>
+    </ClCompile>
     <ClCompile Include="GunShipEnemy.cpp">
-      <Filter>Pliki źródłowe\Enemies</Filter>
+      <Filter>Pliki źródłowe\SpaceObject\Spaceships</Filter>
     </ClCompile>
     <ClCompile Include="BulletEnemy.cpp">
-      <Filter>Pliki źródłowe\Enemies</Filter>
+      <Filter>Pliki źródłowe\SpaceObject\Bullets</Filter>
     </ClCompile>
-    <ClCompile Include="Helpers.cpp">
+    <ClCompile Include="SpaceObjectsManager.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemiesCreator.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
@@ -84,6 +99,12 @@
       <Filter>Pliki nagłówkowe\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="Helpers.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="SpaceObjectsManager.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemiesCreator.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

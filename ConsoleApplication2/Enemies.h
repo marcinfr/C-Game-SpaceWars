@@ -6,16 +6,6 @@
 #include "MeteorEnemy.h"
 #include "GunShipEnemy.h"
 
-class EnemyWrapper
-{
-public:
-	SpaceObject* enemy;
-	EnemyWrapper(SpaceObject* enemy)
-	{
-		this->enemy = enemy;
-	}
-};
-
 class Enemies : public sf::Drawable
 {
 public:
@@ -34,8 +24,7 @@ public:
 			enemy = new MeteorEnemy(this->windowX, randomPosY);
 		}
 		enemy->init();
-		EnemyWrapper EnemyWrapper(enemy);
-		enemies.push_back(EnemyWrapper);
+		enemies.push_back(enemy);
 	}
 	void setPlayerSpaceship(Spaceship* spaceship)
 	{
@@ -48,13 +37,13 @@ public:
 			maxEnemyQty++;
 		}
 
-		std::vector<EnemyWrapper> currentenemies;
+		std::vector<SpaceObject*> currentenemies;
 
 		int currrentEnemiesSpacehipQty = 0;
 
-		for (auto& enemyWrapper : enemies) {
-			currentenemies.push_back(enemyWrapper);
-			if (enemyWrapper.enemy->isSpaceship()) {
+		for (auto& enemy : enemies) {
+			currentenemies.push_back(enemy);
+			if (enemy->isSpaceship()) {
 				currrentEnemiesSpacehipQty++;
 			}
 		}
@@ -63,32 +52,31 @@ public:
 			generateEnemy();
 		}
 
-		for (auto& enemyWrapper : currentenemies) {
-			enemyWrapper.enemy->move();
+		for (auto& enemy : currentenemies) {
+			enemy->move();
 
-			if (enemyWrapper.enemy->hasCollision(playerSpacehip)) {
-				enemyWrapper.enemy->onCollision(playerSpacehip);
+			if (enemy->hasCollision(playerSpacehip)) {
+				enemy->onCollision(playerSpacehip);
 			}
 
-			if (enemyWrapper.enemy->canShoot()) {
-				SpaceObject* bullet = enemyWrapper.enemy->getBulllet();
-				EnemyWrapper bullerWrapper(bullet);
-				enemies.push_back(bullerWrapper);
+			if (enemy->canShoot()) {
+				SpaceObject* bullet = enemy->getBulllet();
+				enemies.push_back(bullet);
 			}
 		}
 		
-		enemies.erase(std::remove_if(enemies.begin(), enemies.end(), [](EnemyWrapper& enemyWrapper) {
-			return !enemyWrapper.enemy->isAlive();
+		enemies.erase(std::remove_if(enemies.begin(), enemies.end(), [](SpaceObject* enemy) {
+			return !enemy->isAlive();
 			}), enemies.end());
 
-		for (auto& enemyWrapper : enemies) {
-			if (!enemyWrapper.enemy->isAlive()) {
-				delete& enemyWrapper;
+		for (auto& enemy : enemies) {
+			if (!enemy->isAlive()) {
+				delete& enemy;
 			}
 		}
 	}
 private:
-	std::vector<EnemyWrapper> enemies;
+	std::vector<SpaceObject*> enemies;
 	int windowX;
 	int windowY;
 	Timer* timer;
@@ -97,8 +85,8 @@ private:
 
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override
 	{
-		for (const auto& enemyWrapper : enemies) {
-			target.draw(*enemyWrapper.enemy);
+		for (const auto& enemy : enemies) {
+			target.draw(*enemy);
 		}
 	}
 };
