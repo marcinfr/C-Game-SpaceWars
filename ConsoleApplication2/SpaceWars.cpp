@@ -12,6 +12,10 @@
 #include "Background.h"
 #include "Enemies.h"
 #include "InfoBox.h"
+#include "SpaceObjectsManager.h"
+#include "EnemiesCreator.h"
+
+
 
 int main()
 {
@@ -25,6 +29,9 @@ int main()
     
     sf::RenderWindow window(sf::VideoMode({ windowX, windowY }), "SFML works!");
     window.setFramerateLimit(60);
+
+    SpaceObjectsManager SpaceObjectsManager(&window);
+    EnemiesCreator EnemiesCreator(&window, &SpaceObjectsManager);
 
     while (window.isOpen())
     {
@@ -47,34 +54,41 @@ int main()
                         spaceship.moveBackward();
                         break;
                 }
-            }
-            
-            if (const auto* keyReleased = event->getIf<sf::Event::KeyReleased>()) {
+            } else if (const auto* keyReleased = event->getIf<sf::Event::KeyReleased>()) {
                 switch (keyReleased->scancode) {
                     case sf::Keyboard::Scancode::Right:
+                        spaceship.resetSpeedX();
+                        break;
                     case sf::Keyboard::Scancode::Left:
                         spaceship.resetSpeedX();
+                        break;
                     case sf::Keyboard::Scancode::Up:
+                        spaceship.resetSpeedY();
+                        break;
                     case sf::Keyboard::Scancode::Down:
                         spaceship.resetSpeedY();
+                        break;
                 }
             }
         }
 
         window.clear();
 
-        enemies.setPlayerSpaceship(&spaceship);
+        //enemies.setPlayerSpaceship(&spaceship);
 
         spaceship.move();
-        enemies.move();
+        //enemies.move();
         background.move();
 
         window.draw(background);
-        window.draw(enemies);
+        //window.draw(enemies);
+        //window.draw(SpaceObjectsManager);
         window.draw(spaceship);
 
-        window.draw(infobox);
+        EnemiesCreator.create();
+        SpaceObjectsManager.move();
 
+        window.draw(infobox);
         window.display();
     }
 }

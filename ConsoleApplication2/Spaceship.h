@@ -33,8 +33,8 @@ public:
 		posX = posX + currentSpeedX;
 		posY = posY + currentSpeedY;
 
-		if (posX < 0) {
-			posX = 0;
+		if (posX < 10) {
+			posX = 10;
 		}
 
 		if (currentSpeedX < speedX) {
@@ -85,7 +85,7 @@ public:
 
 	void resetSpeedX()
 	{
-		speedX = 0;
+		speedX = -4;
 	}
 
 	void resetSpeedY()
@@ -105,7 +105,7 @@ private:
 	float currentSpeedX = 0;
 	float currentSpeedY = 0;
 
-	float speedStep = 0.4f;
+	float speedStep = 0.2f;
 
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override
 	{
