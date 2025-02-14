@@ -8,6 +8,7 @@ Player::Player(sf::RenderWindow* window)
 	spaceship->moveVector[0] = 0;
 	spaceship->moveVector[1] = 0;
 	spaceship->moveDirectionX = 1;
+	spaceship->life = 100;
 	spaceship->isEnemy = false;
 	spaceship->init();
 }

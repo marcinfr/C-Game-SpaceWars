@@ -1,15 +1,15 @@
 #include "InfoBox.h"
-#include "Spaceship.h"
+#include "Player.h"
 
-InfoBox::InfoBox(Spaceship* spaceship)
+InfoBox::InfoBox(Player* player)
 {
-	this->spaceship = spaceship;
+	this->player = player;
 };
 
 void InfoBox::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	std::ostringstream lifeText;
-	lifeText << spaceship->life;
+	lifeText << player->spaceship->life;
 
 	sf::Font font("assets/arial.ttf");
 	sf::Text life(font);

@@ -2,10 +2,10 @@
 
 GunShipEnemy::GunShipEnemy(int posX, int posY, std::string name) : SpaceObject(posX, posY, name)
 {
-	width = 30;
-	height = 30;
-	maxSpeed = 4;
-	speedAcceleration = 0.1;
+	width = 40;
+	height = 40;
+	maxSpeed = 6;
+	speedAcceleration = 0.2;
 	shootTimer = new Timer();
 }
 

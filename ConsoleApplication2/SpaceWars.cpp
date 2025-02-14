@@ -19,8 +19,6 @@ int main()
     unsigned int windowX = 1500;
     unsigned int windowY = 800;
 
-    //InfoBox infobox(&spaceship);
-    
     sf::RenderWindow window(sf::VideoMode({ windowX, windowY }), "Space Wars!");
     window.setFramerateLimit(60);
 
@@ -29,6 +27,7 @@ int main()
     SpaceObjectsManager SpaceObjectsManager(&window);
     SpaceObjectsManager.addObject(Player.spaceship);
     EnemiesCreator EnemiesCreator(&window, &SpaceObjectsManager);
+    InfoBox infobox(&Player);
 
     while (window.isOpen())
     {
@@ -49,8 +48,7 @@ int main()
         Background.draw();
         EnemiesCreator.create();
         SpaceObjectsManager.move();
-
-        //window.draw(infobox);
+        window.draw(infobox);
         window.display();
     }
 }

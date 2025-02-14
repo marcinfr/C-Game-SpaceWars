@@ -2,16 +2,16 @@
 
 #include <SFML/Graphics.hpp>
 #include <sstream>
-#include "Spaceship.h"
+#include "Player.h"
 
 class InfoBox : public sf::Drawable
 {
 public:
-	InfoBox(Spaceship* spaceship);
+	InfoBox(Player* player);
 	InfoBox() = delete;
 	~InfoBox() = default;
 private:
-	Spaceship* spaceship;
+	Player* player;
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 };
 

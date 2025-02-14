@@ -26,10 +26,10 @@ public:
 	virtual SpaceObject* getBulllet();
 	void init();
 	bool isEnemy = true;
+	int life = 1;
 protected:
 	int width = 60;
 	int height = 60;
-	int life = 1;
 	int maxSpeed = 10;
 	float speedAcceleration = 1;
 	int collisionDamage = 10;
