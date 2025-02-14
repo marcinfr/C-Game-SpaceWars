@@ -1,8 +1,9 @@
 #include "SpaceObject.h"
 
-SpaceObject::SpaceObject(int posX, int posY) {
+SpaceObject::SpaceObject(int posX, int posY, std::string name) {
 	this->posX = (float)posX;
 	this->posY = (float)posY;
+	this->name = name;
 }
 void SpaceObject::init()
 {
@@ -18,12 +19,55 @@ bool SpaceObject::isAlive()
 }
 void SpaceObject::move()
 {
-	double vectorLength = sqrt(pow(moveVector[0], 2) + pow(moveVector[1], 2));
-	double scaleFactor = speed / vectorLength;
-	posX -= moveVector[0] * scaleFactor;
-	posY -= moveVector[1] * scaleFactor;
+	if (speed > currentSpeed) {
+		currentSpeed += speedAcceleration;
+	}
+	if (currentSpeed > maxSpeed) {
+		currentSpeed = maxSpeed;
+	}
 
-	if (posX + width - speed < 0) {
+	if (speed < currentSpeed) {
+		currentSpeed -= speedAcceleration;
+	}
+	if (currentSpeed < 0) {
+		currentSpeed = 0;
+	}
+
+
+	if (this->name == "Player") {
+		//std::cout << currentSpeed << "\n";
+	}
+
+	float speedX = 0;
+	float speedY = 0;
+
+	double vectorLength = sqrt(pow(moveVector[0], 2) + pow(moveVector[1], 2));
+	if (vectorLength > 0) {
+		double scaleFactor = currentSpeed / vectorLength;
+		speedX =  moveVector[0] * scaleFactor;
+		speedY += moveVector[1] * scaleFactor;
+	}
+
+	if (currentSpeedX > speedX) {
+		currentSpeedX -= speedAcceleration;
+	}
+
+	if (currentSpeedX < speedX) {
+		currentSpeedX += speedAcceleration;
+	}
+
+	if (currentSpeedY > speedY) {
+		currentSpeedY -= speedAcceleration;
+	}
+
+	if (currentSpeedY < speedY) {
+		currentSpeedY += speedAcceleration;
+	}
+
+	posX += currentSpeedX * moveDirectionX;
+	posY += currentSpeedY;
+
+	if (posX + width - currentSpeed < 0) {
 		life = 0;
 	}
 
@@ -45,6 +89,20 @@ bool SpaceObject::canShoot()
 SpaceObject* SpaceObject::getBulllet()
 {
 	return NULL;
+}
+void SpaceObject::setSpeed(float speed) 
+{
+	if (speed > maxSpeed) {
+		speed = maxSpeed;
+	}
+	if (speed < 0) {
+		speed = 0;
+	}
+	this->speed = speed;
+}
+void SpaceObject::setMaxSpeed()
+{
+	speed = maxSpeed;
 }
 bool SpaceObject::isSpaceship()
 {

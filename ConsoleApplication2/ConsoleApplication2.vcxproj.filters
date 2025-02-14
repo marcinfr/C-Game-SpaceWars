@@ -36,17 +36,11 @@
     <ClCompile Include="SpaceWars.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="Spaceship.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="Background.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="SpaceObject.cpp">
       <Filter>Pliki źródłowe\SpaceObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemies.cpp">
-      <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="InfoBox.cpp">
       <Filter>Pliki źródłowe</Filter>
@@ -69,12 +63,12 @@
     <ClCompile Include="EnemiesCreator.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="Spaceship.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="Background.h">
@@ -82,9 +76,6 @@
     </ClInclude>
     <ClInclude Include="SpaceObject.h">
       <Filter>Pliki nagłówkowe\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemies.h">
-      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="MeteorEnemy.h">
       <Filter>Pliki nagłówkowe\Enemies</Filter>
@@ -105,6 +96,9 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="EnemiesCreator.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

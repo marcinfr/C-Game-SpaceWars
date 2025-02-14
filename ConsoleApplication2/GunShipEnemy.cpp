@@ -1,11 +1,11 @@
 #include "GunShipEnemy.h"
-#include "Helpers.h"
 
-GunShipEnemy::GunShipEnemy(int posX, int posY) : SpaceObject(posX, posY)
+GunShipEnemy::GunShipEnemy(int posX, int posY, std::string name) : SpaceObject(posX, posY, name)
 {
 	width = 30;
 	height = 30;
-	speed = 2;
+	maxSpeed = 4;
+	speedAcceleration = 0.1;
 	shootTimer = new Timer();
 }
 
@@ -22,5 +22,7 @@ SpaceObject* GunShipEnemy::getBulllet()
 {
 	SpaceObject* bullet = new BulletEnemy((int)posX, (int)(posY + (height / 2)));
 	bullet->init();
+	bullet->setMaxSpeed();
+	bullet->moveDirectionX = moveDirectionX;
 	return bullet;
 }

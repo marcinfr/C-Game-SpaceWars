@@ -4,33 +4,29 @@
 #include <random>
 
 
-class Star
+class Star : public sf::Drawable
 {
 public:
-	Star(float maxX, float maxY);
-	void randomStar(bool withX = true);
-	float getX() const;
-	float getY() const;
-	sf::Color getColor() const;
-	void move();
-private:
+	Star(int x, int y, int type);
 	float x;
 	float y;
-	float maxX;
-	float maxY;
+	void move();
+private:
+	int type;
 	float speed;
 	sf::Color color;
+	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 };
 
-
-class Background : public sf::Drawable
+class Background
 {
 public:
-	Background(int windowX, int windowY, int starsQty);
+	Background(sf::RenderWindow* window);
 	Background() = delete;
 	~Background() = default;
 	void move();
+	void draw();
 private:
+	sf::RenderWindow* window;
 	std::vector<Star> stars;
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 };

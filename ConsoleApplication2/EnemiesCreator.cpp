@@ -29,13 +29,17 @@ SpaceObject* EnemiesCreator::getNewRandomEnemy()
 	int posX = window->getSize().x;
 	int posY = RandomHelper::getInteger(0, window->getSize().y);
 	int enemyType = RandomHelper::getInteger(0, 100);
-	SpaceObject* enemy = new SpaceObject(posX, posY);
+	SpaceObject* enemy = NULL;
 	if (enemyType < 30) {
 		enemy = new GunShipEnemy(posX, posY);
 	}
-	else if (enemyType < 60) {
+	else if (enemyType < 1000) {
 		enemy = new MeteorEnemy(posX, posY);
 	}
+	else {
+		enemy = new SpaceObject(posX, posY);
+	}
 	enemy->init();
+	enemy->setMaxSpeed();
 	return enemy;
 }

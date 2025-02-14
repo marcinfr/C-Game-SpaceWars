@@ -135,29 +135,27 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BulletEnemy.cpp" />
     <ClCompile Include="EnemiesCreator.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="SpaceObject.cpp" />
     <ClCompile Include="SpaceObjectsManager.cpp" />
     <ClCompile Include="SpaceWars.cpp" />
-    <ClCompile Include="Enemies.cpp" />
     <ClCompile Include="GunShipEnemy.cpp" />
     <ClCompile Include="Helpers.cpp" />
     <ClCompile Include="InfoBox.cpp" />
     <ClCompile Include="MeteorEnemy.cpp" />
-    <ClCompile Include="Spaceship.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="BulletEnemy.h" />
     <ClInclude Include="EnemiesCreator.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="SpaceObject.h" />
-    <ClInclude Include="Enemies.h" />
     <ClInclude Include="GunShipEnemy.h" />
     <ClInclude Include="Helpers.h" />
     <ClInclude Include="InfoBox.h" />
     <ClInclude Include="MeteorEnemy.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SpaceObjectsManager.h" />
-    <ClInclude Include="Spaceship.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ConsoleApplication2.rc" />

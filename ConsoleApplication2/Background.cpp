@@ -1,77 +1,71 @@
 #include "Background.h"
+#include "Helpers.h"
 
-Star::Star(float maxX, float maxY)
+Star::Star(int x, int y, int type)
 {
-	this->maxX = maxX;
-	this->maxY = maxY;
-	this->randomStar();
+	this->x = x;
+	this->y = y;
+	switch (type) {
+		case 1:
+			speed = 3;
+			color = sf::Color(230, 230, 230);
+			break;
+		case 2:
+			speed = 2;
+			color = sf::Color(150, 150, 150);
+			break;
+		default:
+			speed = 1;
+			color = sf::Color(80, 80, 80);
+	}
+	this->color = color;
 }
-void Star::randomStar(bool withX)
-{
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<> randomY(0, this->maxY);
-	y = randomY(gen);
-	if (withX) {
-		std::uniform_int_distribution<> randomX(0, this->maxX);
-		x = randomX(gen);
-	}
-	else {
-		x = this->maxX;
-	}
-	std::uniform_int_distribution<> randomType(0, 100);
 
-	int type = randomType(gen);
-	if (type < 30) {
-		speed = 1;
-		color = sf::Color(80, 80, 80);
-	}
-	else if (type < 60) {
-		speed = 2;
-		color = sf::Color(150, 150, 150);
-	}
-	else {
-		speed = 3;
-		color = sf::Color(230, 230, 230);
-	}
-}
-float Star::getX() const
-{
-	return x;
-}
-float Star::getY() const
-{
-	return y;
-}
-sf::Color Star::getColor() const
-{
-	return color;
-}
 void Star::move()
 {
 	x -= speed;
-	if (x <= 0) {
-		this->randomStar(false);
-	}
 }
-Background::Background(int windowX, int windowY, int starsQty)
+
+void Star::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	for (int i = 0; i < starsQty; i++) {
-		stars.push_back(Star(windowX, windowY));
+	sf::CircleShape shape(1);
+	shape.setPosition({ x,y });
+	shape.setFillColor(color);
+	target.draw(shape);
+}
+
+Background::Background(sf::RenderWindow* window)
+{
+	this->window = window;
+	for (int i = 0; i < 150; i++) {
+		int x = RandomHelper::getInteger(0, window->getSize().x);
+		int y = RandomHelper::getInteger(0, window->getSize().y);
+
+		int type = 0;
+
+		if (i > 120) {
+			type = 2;
+		} else if (i > 80) {
+			type = 1;
+		}
+
+		stars.push_back(Star(x, y, type));
 	}
 }
 void Background::move()
 {
 	for (auto& star : stars) {
 		star.move();
+		if (star.x < 0) {
+			star.x = window->getSize().x;
+			star.y = RandomHelper::getInteger(0, window->getSize().y);
+		}
 	}
 }
-void Background::draw(sf::RenderTarget& target, sf::RenderStates states) const
+
+void Background::draw()
 {
 	for (const auto& star : stars) {
-		sf::CircleShape shape(1);
-		shape.setPosition({ star.getX(), star.getY() });
-		shape.setFillColor(star.getColor());
-		target.draw(shape);
+		this->window->draw(star);
 	}
 }
