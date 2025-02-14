@@ -77,14 +77,6 @@ void SpaceObject::onCollision(SpaceObject* obj)
 	life = 0;
 	obj->life -= collisionDamage;
 }
-bool SpaceObject::canShoot()
-{
-	return false;
-}
-SpaceObject* SpaceObject::getBulllet()
-{
-	return NULL;
-}
 void SpaceObject::setSpeed(float speed) 
 {
 	if (speed > maxSpeed) {
@@ -98,10 +90,19 @@ void SpaceObject::setSpeed(float speed)
 void SpaceObject::setMaxSpeed()
 {
 	speed = maxSpeed;
+	currentSpeed = speed;
 }
 void SpaceObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	sf::RectangleShape shape({ (float)width, (float)height });
 	shape.setPosition({ posX, posY });
 	target.draw(shape);
+}
+std::vector<SpaceObject*> SpaceObject::getShootBullets() {
+	std::vector<SpaceObject*> bullets;
+	return bullets;
+}
+void SpaceObject::shoot()
+{
+	this->isShooting = true;
 }

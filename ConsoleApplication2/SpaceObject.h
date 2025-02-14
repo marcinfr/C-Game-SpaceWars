@@ -22,11 +22,13 @@ public:
 	void setMaxSpeed();
 	bool hasCollision(SpaceObject* ship);
 	void onCollision(SpaceObject* ship);
-	virtual bool canShoot();
-	virtual SpaceObject* getBulllet();
+	void shoot();
 	void init();
 	bool isEnemy = true;
+	bool isAutoShooting = false;
+	bool isShooting = false;
 	int life = 1;
+	virtual std::vector<SpaceObject*> getShootBullets();
 protected:
 	int width = 60;
 	int height = 60;
@@ -41,5 +43,6 @@ private:
 	float currentSpeed = 0;
 	float currentSpeedX = 0;
 	float currentSpeedY = 0;
+	float canShoot = false;
 };
 

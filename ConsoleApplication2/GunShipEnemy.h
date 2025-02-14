@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SpaceObject.h"
+#include "GunDefault.h"
 #include "BulletEnemy.h"
 #include <iostream>
 #include "Helpers.h"
@@ -13,10 +14,8 @@ class GunShipEnemy : public SpaceObject
 public:
 	GunShipEnemy(int posX, int posY, std::string name = "Gunship");
 	~GunShipEnemy() = default;
-	bool canShoot() override;
-	SpaceObject* getBulllet();
-	bool isShooting = false;
+	std::vector<SpaceObject*> getShootBullets();
 private:
-	Timer* shootTimer;
+	GunDefault* gun;
 };
 

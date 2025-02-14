@@ -32,14 +32,21 @@ void SpaceObjectsManager::move()
 			}
 		}
 
-		if (obj->canShoot()) {
+		if (obj->isAutoShooting) {
+			obj->shoot();
+		}
+
+		if (obj->isShooting) {
 			shootingObjects.push_back(obj);
+			obj->isShooting = false;
 		}
 	}
 
 	for (auto& obj : shootingObjects) {
-		SpaceObject* bullet = obj->getBulllet();
-		spaceObjects.push_back(bullet);
+		std::vector<SpaceObject*> bullets = obj->getShootBullets();
+		for (auto& bullet : bullets) {
+			spaceObjects.push_back(bullet);
+		}
 	}
 
 	spaceObjects.erase(std::remove_if(spaceObjects.begin(), spaceObjects.end(), [](SpaceObject* obj) {

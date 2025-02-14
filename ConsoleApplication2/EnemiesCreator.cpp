@@ -41,5 +41,6 @@ SpaceObject* EnemiesCreator::getNewRandomEnemy()
 	}
 	enemy->init();
 	enemy->setMaxSpeed();
+	enemy->isAutoShooting = true;
 	return enemy;
 }

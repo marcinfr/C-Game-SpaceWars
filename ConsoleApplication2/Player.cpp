@@ -61,6 +61,9 @@ void Player::onKeyPressed(sf::Keyboard::Scancode key)
 			isDownButtonPressed = true;
 			yMoveDirection = 1;
 			break;
+		case sf::Keyboard::Scancode::Space:
+			spaceship->shoot();
+			break;
 	}
 	controlSpaceship();
 }
