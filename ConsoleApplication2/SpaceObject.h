@@ -35,7 +35,7 @@ protected:
 	int collisionDamage = 10;
 	float posX = 0;
 	float posY = 0;
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 private:
 	float speed = 0;
 	float currentSpeed = 0;

@@ -13,6 +13,7 @@
 #include "SpaceObjectsManager.h"
 #include "EnemiesCreator.h"
 #include "Player.h"
+#include "Menu.h"
 
 int main()
 {
@@ -28,6 +29,7 @@ int main()
     SpaceObjectsManager.addObject(Player.spaceship);
     EnemiesCreator EnemiesCreator(&window, &SpaceObjectsManager);
     InfoBox infobox(&Player);
+    Menu Menu(&window);
 
     while (window.isOpen())
     {
@@ -36,7 +38,13 @@ int main()
             if (event->is<sf::Event::Closed>()) {
                 window.close();
             } else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
-                Player.onKeyPressed(keyPressed->scancode);
+                switch (keyPressed->scancode) {
+                    case sf::Keyboard::Scancode::Escape:
+                    Menu.display = !Menu.display;
+                    break;
+                default:
+                    Player.onKeyPressed(keyPressed->scancode);
+                }
             } else if (const auto* keyReleased = event->getIf<sf::Event::KeyReleased>()) {
                 Player.onKeyReleased(keyReleased->scancode);
             }
@@ -44,11 +52,20 @@ int main()
   
         window.clear();
  
-        Background.move();
+        if (!Menu.display) {
+            Background.move();
+            EnemiesCreator.create();
+            SpaceObjectsManager.move();
+        }
+        
         Background.draw();
-        EnemiesCreator.create();
-        SpaceObjectsManager.move();
+        SpaceObjectsManager.draw();
         window.draw(infobox);
+
+        if (Menu.display) {
+            window.draw(Menu);
+        }
+
         window.display();
     }
 }

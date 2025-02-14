@@ -7,15 +7,15 @@ Star::Star(int x, int y, int type)
 	this->y = y;
 	switch (type) {
 		case 1:
-			speed = 3;
+			speed = 1;
 			color = sf::Color(230, 230, 230);
 			break;
 		case 2:
-			speed = 2;
+			speed = 0.6;
 			color = sf::Color(150, 150, 150);
 			break;
 		default:
-			speed = 1;
+			speed = 0.3;
 			color = sf::Color(80, 80, 80);
 	}
 	this->color = color;

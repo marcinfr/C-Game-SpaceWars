@@ -135,6 +135,7 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="BulletEnemy.cpp" />
     <ClCompile Include="EnemiesCreator.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SpaceObject.cpp" />
     <ClCompile Include="SpaceObjectsManager.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="Background.h" />
     <ClInclude Include="BulletEnemy.h" />
     <ClInclude Include="EnemiesCreator.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="SpaceObject.h" />
     <ClInclude Include="GunShipEnemy.h" />

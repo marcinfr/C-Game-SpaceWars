@@ -8,6 +8,7 @@ class SpaceObjectsManager
 public:
 	SpaceObjectsManager(sf::RenderWindow* window);
 	void move();
+	void draw();
 	void addObject(SpaceObject* spaceObject);
 private:
 	sf::RenderWindow* window;

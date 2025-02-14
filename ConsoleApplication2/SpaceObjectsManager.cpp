@@ -51,7 +51,10 @@ void SpaceObjectsManager::move()
 			delete& obj;
 		}
 	}
+}
 
+void SpaceObjectsManager::draw()
+{
 	for (const auto& obj : spaceObjects) {
 		window->draw(*obj);
 	}

@@ -3,7 +3,6 @@
 #include <SFML/Graphics.hpp>
 #include <random>
 
-
 class Star : public sf::Drawable
 {
 public:
