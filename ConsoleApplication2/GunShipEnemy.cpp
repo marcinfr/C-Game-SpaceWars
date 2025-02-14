@@ -24,5 +24,6 @@ SpaceObject* GunShipEnemy::getBulllet()
 	bullet->init();
 	bullet->setMaxSpeed();
 	bullet->moveDirectionX = moveDirectionX;
+	bullet->isEnemy = isEnemy;
 	return bullet;
 }

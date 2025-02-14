@@ -13,13 +13,24 @@ void SpaceObjectsManager::addObject(SpaceObject* spaceObject)
 void SpaceObjectsManager::move()
 {
 	std::vector<SpaceObject*> shootingObjects;
+	std::vector<SpaceObject*> enemiesObjects;
+
+	for (auto& obj : spaceObjects) {
+		if (obj->isEnemy) {
+			enemiesObjects.push_back(obj);
+		}
+	}
 
 	for (auto& obj : spaceObjects) {
 		obj->move();
 
-		//if (obj->hasCollision(playerSpacehip)) {
-		//	obj->onCollision(playerSpacehip);
-		//}
+		if (!obj->isEnemy) {
+			for (auto& enemy : enemiesObjects) {
+				if (enemy->hasCollision(obj)) {
+					enemy->onCollision(obj);
+				}
+			}
+		}
 
 		if (obj->canShoot()) {
 			shootingObjects.push_back(obj);

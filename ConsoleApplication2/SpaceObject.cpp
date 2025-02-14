@@ -33,11 +33,6 @@ void SpaceObject::move()
 		currentSpeed = 0;
 	}
 
-
-	if (this->name == "Player") {
-		//std::cout << currentSpeed << "\n";
-	}
-
 	float speedX = 0;
 	float speedY = 0;
 
@@ -73,14 +68,14 @@ void SpaceObject::move()
 
 	shape->setPosition(posX, posY);
 }
-bool SpaceObject::hasCollision(Spaceship* ship)
+bool SpaceObject::hasCollision(SpaceObject* obj)
 {
-	return shape->hasCollision(ship->shape);
+	return shape->hasCollision(obj->shape);
 }
-void SpaceObject::onCollision(Spaceship* ship)
+void SpaceObject::onCollision(SpaceObject* obj)
 {
 	life = 0;
-	ship->makeDamage(collisionDamage);
+	obj->life -= collisionDamage;
 }
 bool SpaceObject::canShoot()
 {
@@ -103,10 +98,6 @@ void SpaceObject::setSpeed(float speed)
 void SpaceObject::setMaxSpeed()
 {
 	speed = maxSpeed;
-}
-bool SpaceObject::isSpaceship()
-{
-	return true;
 }
 void SpaceObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {

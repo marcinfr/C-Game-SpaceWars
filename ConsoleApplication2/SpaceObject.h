@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "Spaceship.h"
 #include<array>
 #include <iostream>
 #include <string>
@@ -21,12 +20,12 @@ public:
 	virtual void move();
 	void setSpeed(float speed);
 	void setMaxSpeed();
-	bool hasCollision(Spaceship* ship);
-	void onCollision(Spaceship* ship);
+	bool hasCollision(SpaceObject* ship);
+	void onCollision(SpaceObject* ship);
 	virtual bool canShoot();
 	virtual SpaceObject* getBulllet();
-	virtual bool isSpaceship();
 	void init();
+	bool isEnemy = true;
 protected:
 	int width = 60;
 	int height = 60;
