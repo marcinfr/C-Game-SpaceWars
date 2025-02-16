@@ -1,13 +1,14 @@
 #include "Player.h"
-#include "GunShipEnemy.h"
+#include "SpaceshipShooterDefault.h"
 #include "PlayerController.h"
 
 Player::Player(sf::RenderWindow* window)
 {
-	spaceship = new GunShipEnemy(0, 0, "Player");
+	spaceship = new SpaceshipShooterDefault("Player");
+	spaceship->posY = window->getSize().y / 2;
 	spaceship->moveVector[0] = 0;
 	spaceship->moveVector[1] = 0;
-	spaceship->moveDirectionX = 1;
+	spaceship->orientationX = 1;
 	spaceship->life = 100;
 	spaceship->isEnemy = false;
 	spaceship->init();

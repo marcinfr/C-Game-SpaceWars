@@ -2,18 +2,18 @@
 
 #include "SpaceObject.h"
 #include "GunDefault.h"
-#include "BulletEnemy.h"
+#include "BulletDefault.h"
 #include <iostream>
 #include "Helpers.h"
 #include <string>
 
 using namespace std;
 
-class GunShipEnemy : public SpaceObject
+class SpaceshipShooterDefault : public SpaceObject
 {
 public:
-	GunShipEnemy(int posX, int posY, std::string name = "Gunship");
-	~GunShipEnemy() = default;
+	SpaceshipShooterDefault(std::string name = "Gunship");
+	~SpaceshipShooterDefault() = default;
 	std::vector<SpaceObject*> getShootBullets();
 private:
 	GunDefault* gun;

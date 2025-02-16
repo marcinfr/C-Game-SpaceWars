@@ -1,7 +1,7 @@
 #include "EnemiesCreator.h"
 #include "Helpers.h"
-#include "MeteorEnemy.h"
-#include "GunShipEnemy.h"
+#include "SpaceshipMeteor.h"
+#include "SpaceshipShooterDefault.h"
 
 EnemiesCreator::EnemiesCreator(sf::RenderWindow* window, SpaceObjectsManager* spaceObjectManager)
 {
@@ -30,15 +30,14 @@ SpaceObject* EnemiesCreator::getNewRandomEnemy()
 	int posY = RandomHelper::getInteger(0, window->getSize().y);
 	int enemyType = RandomHelper::getInteger(0, 100);
 	SpaceObject* enemy = NULL;
-	if (enemyType < 30) {
-		enemy = new GunShipEnemy(posX, posY);
-	}
-	else if (enemyType < 1000) {
-		enemy = new MeteorEnemy(posX, posY);
+	if (enemyType < 50) {
+		enemy = new SpaceshipShooterDefault();
 	}
 	else {
-		enemy = new SpaceObject(posX, posY);
+		enemy = new SpaceshipMeteor();
 	}
+	enemy->posX = posX;
+	enemy->posY = posY;
 	enemy->init();
 	enemy->setMaxSpeed();
 	enemy->isAutoShooting = true;

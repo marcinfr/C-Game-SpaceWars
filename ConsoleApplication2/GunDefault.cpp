@@ -1,7 +1,7 @@
 #include "GunDefault.h"
-#include "BulletEnemy.h"
+#include "BulletFactory.h"
 
-GunDefault::GunDefault()
+GunDefault::GunDefault(std::string name)
 {
 	shootTimer = new Timer();
 }
@@ -10,13 +10,16 @@ std::vector<SpaceObject*> GunDefault::getShootBullets(int x, int y) {
 	std::vector<SpaceObject*> bullets;
 
 	if (shootTimer->hasElapsed()) {
-		SpaceObject* bullet = new BulletEnemy(x, y);
+		SpaceObject* bullet = BulletFactory::createObject(bulletType);
+		bullet->posX = x;
+		bullet->posY = y;
 		bullet->init();
 		bullet->setMaxSpeed();
 		bullet->isEnemy = isEnemy;
-		bullet->moveDirectionX = moveDirectionX;
+		bullet->moveVector[0] = orientationX;
+		bullet->orientationX = orientationX;
 		bullets.push_back(bullet);
-		shootTimer->setTime(2);
+		shootTimer->setTime(cooldown);
 	}
 
 	return bullets;

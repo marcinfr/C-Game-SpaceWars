@@ -22,7 +22,7 @@ void SpaceObjectsManager::move()
 	}
 
 	for (auto& obj : spaceObjects) {
-		obj->move();
+		obj->move(window);
 
 		if (!obj->isEnemy) {
 			for (auto& enemy : enemiesObjects) {
