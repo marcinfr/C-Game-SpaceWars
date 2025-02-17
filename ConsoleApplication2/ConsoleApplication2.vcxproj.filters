@@ -79,6 +79,9 @@
       <Filter>Pliki źródłowe\SpaceObject</Filter>
     </ClCompile>
     <ClCompile Include="GunDouble.cpp">
+      <Filter>Pliki źródłowe\SpaceObject\Guns</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
@@ -129,6 +132,9 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="GunDouble.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

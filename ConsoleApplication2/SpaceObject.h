@@ -23,8 +23,8 @@ public:
 	virtual void move(sf::RenderWindow* window);
 	void setSpeed(float speed);
 	void setMaxSpeed();
-	bool hasCollision(SpaceObject* ship);
-	void onCollision(SpaceObject* ship);
+	bool hasCollision(SpaceObject* obj);
+	virtual void onCollision(SpaceObject* obj);
 	void shoot();
 	void init();
 	bool isEnemy = true;
@@ -32,9 +32,10 @@ public:
 	bool isShooting = false;
 	int life = 1;
 	virtual std::vector<SpaceObject*> getShootBullets();
-protected:
+	std::string spritePath = "";
 	int width = 60;
 	int height = 60;
+protected:
 	int maxSpeed = 10;
 	float speedAcceleration = 1;
 	int collisionDamage = 10;

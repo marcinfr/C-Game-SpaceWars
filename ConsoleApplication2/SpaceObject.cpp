@@ -33,6 +33,13 @@ void SpaceObject::move(sf::RenderWindow* window)
 		currentSpeed = 0;
 	}
 
+	if (posY - (height / 2) <= 0) {
+		moveVector[1] = abs(moveVector[1]);
+	}
+	if (posY + (height / 2) >= window->getSize().y) {
+		moveVector[1] = (-1) * abs(moveVector[1]);
+	}
+
 	float speedX = 0;
 	float speedY = 0;
 
@@ -96,11 +103,26 @@ void SpaceObject::setMaxSpeed()
 }
 void SpaceObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	sf::RectangleShape shape({ (float)width, (float)height });
-	shape.setPosition({ posX - (width / 2), posY - (height / 2)});
-	shape.setFillColor(sf::Color(0, 155, 0));
-	target.draw(shape);
+	if (spritePath != "") {
+		sf::Texture texture;
+		texture.loadFromFile(spritePath);
+		sf::Sprite image(texture);
+		if (orientationX == 1) {
+			image.setPosition({ posX - (width / 2), posY - (height / 2) });
+		} else {
+			image.setPosition({ posX + (width / 2), posY + (height / 2) });
+			image.rotate(sf::degrees(180));
+		}
+		target.draw(image);
+	}
+	else {
+		sf::RectangleShape shape({ (float)width, (float)height });
+		shape.setPosition({ posX - (width / 2), posY - (height / 2)});
+		shape.setFillColor(sf::Color(0, 155, 0));
+		target.draw(shape);
+	}
 
+	/*
 	sf::VertexArray border(sf::PrimitiveType::Lines, 8);
 	border[0].position = sf::Vector2f(this->shape->getX1(), this->shape->getY1());
 	border[1].position = sf::Vector2f(this->shape->getX2(), this->shape->getY1());
@@ -110,15 +132,13 @@ void SpaceObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	border[5].position = sf::Vector2f(this->shape->getX2(), this->shape->getY2());
 	border[6].position = sf::Vector2f(this->shape->getX1(), this->shape->getY1());
 	border[7].position = sf::Vector2f(this->shape->getX1(), this->shape->getY2());
-
 	target.draw(border);
 
 	sf::CircleShape center(4);
 	center.setPosition({ posX - 2, posY -2 });
 	center.setFillColor(sf::Color(255, 0, 0));
 	target.draw(center);
-
-
+	*/
 }
 std::vector<SpaceObject*> SpaceObject::getShootBullets() {
 	std::vector<SpaceObject*> bullets;

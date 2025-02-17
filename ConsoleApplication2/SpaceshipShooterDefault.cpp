@@ -3,10 +3,11 @@
 
 SpaceshipShooterDefault::SpaceshipShooterDefault(std::string name) : SpaceObject(name)
 {
-	width = 40;
-	height = 40;
+	width = 77;
+	height = 66;
 	maxSpeed = 6;
 	speedAcceleration = 0.2;
+	spritePath = "assets/spaceship01_77.png";
 	gun = GunFactory::createObject("double_gun");
 }
 

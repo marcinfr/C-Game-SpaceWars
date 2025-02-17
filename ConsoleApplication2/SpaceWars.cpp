@@ -14,15 +14,18 @@
 #include "EnemiesCreator.h"
 #include "Player.h"
 #include "Menu.h"
+#include "Stage.h"
 
 int main()
 {
     unsigned int windowX = 1500;
     unsigned int windowY = 800;
+    
 
     sf::RenderWindow window(sf::VideoMode({ windowX, windowY }), "Space Wars!");
     window.setFramerateLimit(60);
 
+    Stage Stage(&window);
     Player Player(&window);
     Background Background(&window);
     SpaceObjectsManager SpaceObjectsManager(&window);
@@ -49,11 +52,16 @@ int main()
                 Player.onKeyReleased(keyReleased->scancode);
             }
         }
+
+        if (Player.spaceship->life <= 0) {
+            Menu.display = 1;
+        }
   
         window.clear();
  
         if (!Menu.display) {
             Background.move();
+            EnemiesCreator.stage = Stage.stage;
             EnemiesCreator.create();
             SpaceObjectsManager.move();
         }
@@ -61,6 +69,10 @@ int main()
         Background.draw();
         SpaceObjectsManager.draw();
         window.draw(infobox);
+
+        if (!Menu.display) {
+            Stage.process();
+        }
 
         if (Menu.display) {
             window.draw(Menu);

@@ -148,6 +148,7 @@
     <ClCompile Include="Helpers.cpp" />
     <ClCompile Include="InfoBox.cpp" />
     <ClCompile Include="SpaceshipMeteor.cpp" />
+    <ClCompile Include="Stage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="SpaceshipMeteor.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SpaceObjectsManager.h" />
+    <ClInclude Include="Stage.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ConsoleApplication2.rc" />

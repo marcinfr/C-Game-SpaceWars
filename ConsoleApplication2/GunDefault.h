@@ -1,5 +1,6 @@
 #pragma once
 #include "SpaceObject.h"
+#include "BulletFactory.h"
 #include <string>
 
 class GunDefault
@@ -11,6 +12,8 @@ public:
 	int orientationX = -1;
 	std::string bulletType = "simple_bullet";
 	float cooldown = 2;
-private:
+protected:
 	Timer* shootTimer;
+	SpaceObject* createBullet(int x, int y);
+	virtual std::vector<SpaceObject*> createBullets(int x, int y);
 };

@@ -29,6 +29,7 @@ private:
 class Timer
 {
 public:
+	Timer();
 	long getTimestamp();
 	void setTime(double seconds);
 	bool hasElapsed();

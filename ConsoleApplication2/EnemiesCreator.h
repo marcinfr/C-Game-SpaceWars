@@ -8,6 +8,7 @@ class EnemiesCreator
 public:
 	EnemiesCreator(sf::RenderWindow* window, SpaceObjectsManager* spaceObjectManager);
 	void create();
+	int stage = 0;
 private:
 	sf::RenderWindow* window;
 	SpaceObjectsManager* spaceObjectManager;

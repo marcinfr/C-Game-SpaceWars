@@ -18,7 +18,7 @@ void EnemiesCreator::create()
 
 bool EnemiesCreator::canCreate()
 {
-	if (RandomHelper::getInteger(0, 100) == 1) {
+	if (RandomHelper::getInteger(0, 1000) <= 1 + stage) {
 		return true;
 	}
 	return false;
@@ -32,11 +32,14 @@ SpaceObject* EnemiesCreator::getNewRandomEnemy()
 	SpaceObject* enemy = NULL;
 	if (enemyType < 50) {
 		enemy = new SpaceshipShooterDefault();
+		if (stage > 5) {
+			enemy->moveVector[1] = RandomHelper::getInteger(-2, 2);
+		}
 	}
 	else {
 		enemy = new SpaceshipMeteor();
 	}
-	enemy->posX = posX;
+	enemy->posX = posX + enemy->width;
 	enemy->posY = posY;
 	enemy->init();
 	enemy->setMaxSpeed();

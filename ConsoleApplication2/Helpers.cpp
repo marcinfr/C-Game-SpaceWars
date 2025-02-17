@@ -54,6 +54,11 @@ float Rectangle::getY2()
 	return posY + height;
 }
 
+Timer::Timer()
+{
+	startTime = 0;
+}
+
 long Timer::getTimestamp()
 {
 	auto now = std::chrono::high_resolution_clock::now();
@@ -64,7 +69,7 @@ long Timer::getTimestamp()
 void Timer::setTime(double seconds)
 {
 	startTime = getTimestamp();
-	time = (int) seconds * 1000;
+	time = (int) (seconds * 1000);
 }
 
 bool Timer::hasElapsed()
