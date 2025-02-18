@@ -148,3 +148,8 @@ void SpaceObject::shoot()
 {
 	this->isShooting = true;
 }
+
+void SpaceObject::addGun(std::string gunCode)
+{
+	return;
+}

@@ -11,6 +11,7 @@ Player::Player(sf::RenderWindow* window)
 	spaceship->orientationX = 1;
 	spaceship->life = 100;
 	spaceship->isEnemy = false;
+	spaceship->addGun("default_gun");
 	spaceship->init();
 }
 

@@ -6,6 +6,7 @@
 #include <iostream>
 #include "Helpers.h"
 #include <string>
+#include <map>
 
 using namespace std;
 
@@ -15,7 +16,9 @@ public:
 	SpaceshipShooterDefault(std::string name = "Gunship");
 	~SpaceshipShooterDefault() = default;
 	std::vector<SpaceObject*> getShootBullets();
+	void addGun(std::string gunCode);
+	std::string activeGun;
 private:
-	GunDefault* gun;
+	std::map<std::string, GunDefault*> guns;
 };
 

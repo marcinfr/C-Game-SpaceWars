@@ -35,6 +35,7 @@ public:
 	std::string spritePath = "";
 	int width = 60;
 	int height = 60;
+	virtual void addGun(std::string gunCode);
 protected:
 	int maxSpeed = 10;
 	float speedAcceleration = 1;

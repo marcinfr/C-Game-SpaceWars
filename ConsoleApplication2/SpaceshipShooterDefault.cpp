@@ -8,11 +8,25 @@ SpaceshipShooterDefault::SpaceshipShooterDefault(std::string name) : SpaceObject
 	maxSpeed = 6;
 	speedAcceleration = 0.2;
 	spritePath = "assets/spaceship01_77.png";
-	gun = GunFactory::createObject("double_gun");
 }
 
 std::vector<SpaceObject*> SpaceshipShooterDefault::getShootBullets() {
-	gun->orientationX = orientationX;
-	gun->isEnemy = isEnemy;
-	return gun->getShootBullets(posX, posY);
+	if (guns.find(activeGun) != guns.end()) {
+		return guns[activeGun]->getShootBullets(posX, posY);
+	}
+	return SpaceObject::getShootBullets();
 }
+
+void SpaceshipShooterDefault::addGun(std::string gunCode)
+{
+	if (guns.find(gunCode) != guns.end()) {
+		return; // gun already exists
+	}
+
+	activeGun = gunCode;
+	GunDefault* newGun = GunFactory::createObject(gunCode);
+	newGun->orientationX = orientationX;
+	newGun->isEnemy = isEnemy;
+	guns[gunCode] = newGun;
+}
+

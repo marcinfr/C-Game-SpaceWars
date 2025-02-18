@@ -8,6 +8,13 @@ InfoBox::InfoBox(Player* player)
 
 void InfoBox::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
+	sf::Texture texture;
+	texture.loadFromFile("assets/heart.png");
+	sf::Sprite heart(texture);
+	heart.setPosition({ 10, 10 });
+
+	target.draw(heart);
+
 	std::ostringstream lifeText;
 	lifeText << player->spaceship->life;
 
@@ -15,9 +22,9 @@ void InfoBox::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	sf::Text life(font);
 
 	life.setString(lifeText.str());
-	life.setCharacterSize(24);
+	life.setCharacterSize(25);
 	life.setFillColor(sf::Color::Red);
-	life.setPosition({ 0, 0 });
+	life.setPosition({ 45, 6 });
 
 	target.draw(life);
 }

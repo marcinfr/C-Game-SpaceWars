@@ -21,7 +21,6 @@ int main()
     unsigned int windowX = 1500;
     unsigned int windowY = 800;
     
-
     sf::RenderWindow window(sf::VideoMode({ windowX, windowY }), "Space Wars!");
     window.setFramerateLimit(60);
 
@@ -54,7 +53,7 @@ int main()
         }
 
         if (Player.spaceship->life <= 0) {
-            Menu.display = 1;
+        //    Menu.display = 1;
         }
   
         window.clear();

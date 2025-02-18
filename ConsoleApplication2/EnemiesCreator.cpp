@@ -32,8 +32,13 @@ SpaceObject* EnemiesCreator::getNewRandomEnemy()
 	SpaceObject* enemy = NULL;
 	if (enemyType < 50) {
 		enemy = new SpaceshipShooterDefault();
-		if (stage > 5) {
+		if (stage > 6) {
 			enemy->moveVector[1] = RandomHelper::getInteger(-2, 2);
+		}
+		if (stage < 3) {
+			enemy->addGun("default_gun");
+		} else {
+			enemy->addGun("double_gun");
 		}
 	}
 	else {
