@@ -30,7 +30,7 @@ int main()
     SpaceObjectsManager SpaceObjectsManager(&window);
     SpaceObjectsManager.addObject(Player.spaceship);
     EnemiesCreator EnemiesCreator(&window, &SpaceObjectsManager);
-    InfoBox infobox(&Player);
+    InfoBox infobox(&Player, &window);
     Menu Menu(&window);
 
     while (window.isOpen())

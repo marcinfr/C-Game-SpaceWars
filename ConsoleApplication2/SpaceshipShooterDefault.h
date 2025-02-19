@@ -17,8 +17,7 @@ public:
 	~SpaceshipShooterDefault() = default;
 	std::vector<SpaceObject*> getShootBullets();
 	void addGun(std::string gunCode);
-	std::string activeGun;
-private:
-	std::map<std::string, GunDefault*> guns;
+	void setActiveGun(std::string gunCode);
+	std::map<std::string, GunDefault*> guns;	
 };
 

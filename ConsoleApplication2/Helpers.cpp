@@ -83,3 +83,25 @@ bool Timer::hasElapsed()
 	}
 	return true;
 }
+
+sf::VertexArray Graphic::getBorder(float x1, float y1, float x2, float y2, sf::Color color)
+{
+	sf::VertexArray border(sf::PrimitiveType::Lines, 8);
+	border[0].position = sf::Vector2f(x1, y1);
+	border[0].color = color;
+	border[1].position = sf::Vector2f(x2, y1);
+	border[1].color = color;
+	border[2].position = sf::Vector2f(x2, y1);
+	border[2].color = color;
+	border[3].position = sf::Vector2f(x2, y2);
+	border[3].color = color;
+	border[4].position = sf::Vector2f(x2, y2);
+	border[4].color = color;
+	border[5].position = sf::Vector2f(x1, y2);
+	border[5].color = color;
+	border[6].position = sf::Vector2f(x1, y2);
+	border[6].color = color;
+	border[7].position = sf::Vector2f(x1, y1);
+	border[7].color = color;
+	return border;
+}

@@ -30,3 +30,9 @@ void SpaceshipShooterDefault::addGun(std::string gunCode)
 	guns[gunCode] = newGun;
 }
 
+void SpaceshipShooterDefault::setActiveGun(std::string gunCode)
+{
+	if (guns.find(gunCode) != guns.end()) {
+		activeGun = gunCode;
+	}
+}

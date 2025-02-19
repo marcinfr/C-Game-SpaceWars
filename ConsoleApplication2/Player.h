@@ -1,12 +1,12 @@
 #pragma once
 
-#include "SpaceObject.h"
+#include "SpaceshipShooterDefault.h"
 
 class Player
 {
 public:
 	Player(sf::RenderWindow* window);
-	SpaceObject* spaceship;
+	SpaceshipShooterDefault* spaceship;
 	void onKeyPressed(sf::Keyboard::Scancode key);
 	void onKeyReleased(sf::Keyboard::Scancode key);
 private:

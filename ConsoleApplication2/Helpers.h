@@ -1,10 +1,17 @@
 #pragma once
 #include <random>
+#include <SFML/Graphics.hpp>
 
 class RandomHelper
 {
 public:
 	static int getInteger(int from, int to);
+};
+
+class Graphic
+{
+public:
+	static sf::VertexArray getBorder(float x1, float y1, float x2, float y2, sf::Color color = sf::Color::White);
 };
 
 class Rectangle

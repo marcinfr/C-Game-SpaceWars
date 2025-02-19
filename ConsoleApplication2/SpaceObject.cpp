@@ -123,16 +123,7 @@ void SpaceObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	}
 
 	/*
-	sf::VertexArray border(sf::PrimitiveType::Lines, 8);
-	border[0].position = sf::Vector2f(this->shape->getX1(), this->shape->getY1());
-	border[1].position = sf::Vector2f(this->shape->getX2(), this->shape->getY1());
-	border[2].position = sf::Vector2f(this->shape->getX2(), this->shape->getY1());
-	border[3].position = sf::Vector2f(this->shape->getX2(), this->shape->getY2());
-	border[4].position = sf::Vector2f(this->shape->getX1(), this->shape->getY2());
-	border[5].position = sf::Vector2f(this->shape->getX2(), this->shape->getY2());
-	border[6].position = sf::Vector2f(this->shape->getX1(), this->shape->getY1());
-	border[7].position = sf::Vector2f(this->shape->getX1(), this->shape->getY2());
-	target.draw(border);
+	target.draw(Graphic::getBorder(this->shape->getX1(), this->shape->getY1(), this->shape->getX2(), this->shape->getY2()));
 
 	sf::CircleShape center(4);
 	center.setPosition({ posX - 2, posY -2 });
@@ -150,6 +141,11 @@ void SpaceObject::shoot()
 }
 
 void SpaceObject::addGun(std::string gunCode)
+{
+	return;
+}
+
+void SpaceObject::setActiveGun(std::string gunCode)
 {
 	return;
 }
