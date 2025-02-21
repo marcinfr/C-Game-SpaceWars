@@ -53,7 +53,7 @@ int main()
         }
 
         if (Player.spaceship->life <= 0) {
-        //    Menu.display = 1;
+            Menu.display = 1;
         }
   
         window.clear();

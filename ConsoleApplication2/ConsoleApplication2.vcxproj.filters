@@ -31,6 +31,12 @@
     <Filter Include="Pliki nagłówkowe\SpaceObjects\Spaceships">
       <UniqueIdentifier>{808ed26c-2c30-458e-a98b-2d6ad6734915}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\SpaceObjects\Bullet">
+      <UniqueIdentifier>{5894ac77-b0a9-4982-9a59-caa8fec37935}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\SpaceObjects\Guns">
+      <UniqueIdentifier>{d870680c-5365-4e42-a9f0-cfa5decf8f3c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SpaceWars.cpp">
@@ -84,6 +90,12 @@
     <ClCompile Include="Stage.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="BulletBall.cpp">
+      <Filter>Pliki źródłowe\SpaceObject\Bullets</Filter>
+    </ClCompile>
+    <ClCompile Include="GunBallCannon.cpp">
+      <Filter>Pliki źródłowe\SpaceObject\Guns</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -101,9 +113,6 @@
     <ClInclude Include="SpaceshipShooterDefault.h">
       <Filter>Pliki nagłówkowe\SpaceObjects\Spaceships</Filter>
     </ClInclude>
-    <ClInclude Include="BulletDefault.h">
-      <Filter>Pliki nagłówkowe\SpaceObjects\Spaceships</Filter>
-    </ClInclude>
     <ClInclude Include="Helpers.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
@@ -119,9 +128,6 @@
     <ClInclude Include="Menu.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="GunDefault.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="BulletFactory.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
@@ -131,11 +137,23 @@
     <ClInclude Include="GunFactory.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="GunDouble.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="Stage.h">
       <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletDefault.h">
+      <Filter>Pliki nagłówkowe\SpaceObjects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletBall.h">
+      <Filter>Pliki nagłówkowe\SpaceObjects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="GunDefault.h">
+      <Filter>Pliki nagłówkowe\SpaceObjects\Guns</Filter>
+    </ClInclude>
+    <ClInclude Include="GunDouble.h">
+      <Filter>Pliki nagłówkowe\SpaceObjects\Guns</Filter>
+    </ClInclude>
+    <ClInclude Include="GunBallCannon.h">
+      <Filter>Pliki nagłówkowe\SpaceObjects\Guns</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

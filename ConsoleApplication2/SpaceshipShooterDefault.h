@@ -18,6 +18,6 @@ public:
 	std::vector<SpaceObject*> getShootBullets();
 	void addGun(std::string gunCode);
 	void setActiveGun(std::string gunCode);
-	std::map<std::string, GunDefault*> guns;	
+	std::unordered_map<std::string, GunDefault*> guns;	
 };
 

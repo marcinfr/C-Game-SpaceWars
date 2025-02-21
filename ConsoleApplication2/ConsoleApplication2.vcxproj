@@ -133,9 +133,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BulletBall.cpp" />
     <ClCompile Include="BulletDefault.cpp" />
     <ClCompile Include="BulletFactory.cpp" />
     <ClCompile Include="EnemiesCreator.cpp" />
+    <ClCompile Include="GunBallCannon.cpp" />
     <ClCompile Include="GunDefault.cpp" />
     <ClCompile Include="GunDouble.cpp" />
     <ClCompile Include="GunFactory.cpp" />
@@ -152,9 +154,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Background.h" />
+    <ClInclude Include="BulletBall.h" />
     <ClInclude Include="BulletDefault.h" />
     <ClInclude Include="BulletFactory.h" />
     <ClInclude Include="EnemiesCreator.h" />
+    <ClInclude Include="GunBallCannon.h" />
     <ClInclude Include="GunDefault.h" />
     <ClInclude Include="GunDouble.h" />
     <ClInclude Include="GunFactory.h" />

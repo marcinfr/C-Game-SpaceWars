@@ -13,6 +13,7 @@ Player::Player(sf::RenderWindow* window)
 	spaceship->isEnemy = false;
 	spaceship->addGun("default_gun");
 	spaceship->addGun("double_gun");
+	spaceship->addGun("ball_cannon");
 	spaceship->activeGun = "default_gun";
 	spaceship->init();
 }
@@ -73,6 +74,9 @@ void Player::onKeyPressed(sf::Keyboard::Scancode key)
 			break;
 		case sf::Keyboard::Scancode::Num2:
 			spaceship->setActiveGun("double_gun");
+			break;
+		case sf::Keyboard::Scancode::Num3:
+			spaceship->setActiveGun("ball_cannon");
 			break;
 	}
 	controlSpaceship();

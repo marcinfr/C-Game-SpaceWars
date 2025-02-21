@@ -52,17 +52,13 @@ void SpaceObject::move(sf::RenderWindow* window)
 
 	if (currentSpeedX > speedX) {
 		currentSpeedX -= speedAcceleration;
-	}
-
-	if (currentSpeedX < speedX) {
+	} else if (currentSpeedX < speedX) {
 		currentSpeedX += speedAcceleration;
 	}
 
 	if (currentSpeedY > speedY) {
 		currentSpeedY -= speedAcceleration;
-	}
-
-	if (currentSpeedY < speedY) {
+	} else if (currentSpeedY < speedY) {
 		currentSpeedY += speedAcceleration;
 	}
 
@@ -114,8 +110,7 @@ void SpaceObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
 			image.rotate(sf::degrees(180));
 		}
 		target.draw(image);
-	}
-	else {
+	} else {
 		sf::RectangleShape shape({ (float)width, (float)height });
 		shape.setPosition({ posX - (width / 2), posY - (height / 2)});
 		shape.setFillColor(sf::Color(0, 155, 0));
