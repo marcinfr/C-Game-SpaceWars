@@ -36,3 +36,15 @@ void SpaceshipShooterDefault::setActiveGun(std::string gunCode)
 		activeGun = gunCode;
 	}
 }
+
+void SpaceshipShooterDefault::move(sf::RenderWindow* window)
+{
+	if (posY - (height / 2) <= 0) {
+		moveVector[1] = abs(moveVector[1]);
+	}
+	else if (posY + (height / 2) >= window->getSize().y) {
+		moveVector[1] = (-1) * abs(moveVector[1]);
+	}
+
+	return SpaceObject::move(window);
+}

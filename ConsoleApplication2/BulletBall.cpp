@@ -1,9 +1,11 @@
 #include "BulletBall.h"
+#include "Helpers.h"
 
 BulletBall::BulletBall(std::string name) : BulletDefault(name)
 {
-	width = 5;
-	maxSpeed = 13;
+	width = 3;
+	height = 3;
+	maxSpeed = 20;
 	collisionDamage = 7;
 }
 

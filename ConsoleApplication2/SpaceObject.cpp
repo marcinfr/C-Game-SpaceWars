@@ -33,13 +33,6 @@ void SpaceObject::move(sf::RenderWindow* window)
 		currentSpeed = 0;
 	}
 
-	if (posY - (height / 2) <= 0) {
-		moveVector[1] = abs(moveVector[1]);
-	}
-	if (posY + (height / 2) >= window->getSize().y) {
-		moveVector[1] = (-1) * abs(moveVector[1]);
-	}
-
 	float speedX = 0;
 	float speedY = 0;
 
