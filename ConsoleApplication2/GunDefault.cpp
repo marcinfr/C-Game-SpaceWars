@@ -5,7 +5,13 @@ GunDefault::GunDefault(std::string name)
 	shootTimer = new Timer();
 }
 
-std::vector<SpaceObject*> GunDefault::getShootBullets(int x, int y) {
+void GunDefault::setBulletType(std::string bulletType)
+{
+	this->bulletType = bulletType;
+}
+
+std::vector<SpaceObject*> GunDefault::getShootBullets(int x, int y)
+{
 	std::vector<SpaceObject*> bullets;
 
 	if (shootTimer->hasElapsed()) {

@@ -121,7 +121,7 @@ void SpaceObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	target.draw(Graphic::getBorder(this->shape->getX1(), this->shape->getY1(), this->shape->getX2(), this->shape->getY2()));
 
 	sf::CircleShape center(4);
-	center.setPosition({ posX - 2, posY -2 });
+	center.setPosition({ posX - 4, posY - 4 });
 	center.setFillColor(sf::Color(255, 0, 0));
 	target.draw(center);
 	*/

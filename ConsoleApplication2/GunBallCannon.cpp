@@ -2,7 +2,7 @@
 
 GunBallCannon::GunBallCannon(std::string name) : GunDefault(name)
 {
-	
+	setBulletType("ball_bullet");
 }
 
 std::vector<SpaceObject*> GunBallCannon::createBullets(int x, int y)

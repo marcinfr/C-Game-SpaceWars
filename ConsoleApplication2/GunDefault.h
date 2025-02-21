@@ -8,6 +8,7 @@ class GunDefault
 public:
 	GunDefault(std::string name = "");
 	std::vector<SpaceObject*> getShootBullets(int x, int y);
+	void setBulletType(std::string bulletType);
 	bool isEnemy = true;
 	int orientationX = -1;
 	std::string bulletType = "simple_bullet";
