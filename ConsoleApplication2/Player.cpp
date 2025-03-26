@@ -14,6 +14,7 @@ Player::Player(sf::RenderWindow* window)
 	spaceship->addGun("default_gun");
 	spaceship->addGun("double_gun");
 	spaceship->addGun("ball_cannon");
+	spaceship->addGun("machine_gun");
 	spaceship->activeGun = "default_gun";
 	spaceship->init();
 }
@@ -78,6 +79,9 @@ void Player::onKeyPressed(sf::Keyboard::Scancode key)
 		case sf::Keyboard::Scancode::Num3:
 			spaceship->setActiveGun("ball_cannon");
 			break;
+		case sf::Keyboard::Scancode::Num4:
+			spaceship->setActiveGun("machine_gun");
+			break;
 	}
 	controlSpaceship();
 }
@@ -85,22 +89,25 @@ void Player::onKeyPressed(sf::Keyboard::Scancode key)
 void Player::onKeyReleased(sf::Keyboard::Scancode key)
 {
 	switch (key) {
-	case sf::Keyboard::Scancode::Right:
-		isRightButtonPressed = false;
-		xMoveDirection = 0;
-		break;
-	case sf::Keyboard::Scancode::Left:
-		isLeftButtonPressed = false;
-		xMoveDirection = 0;
-		break;
-	case sf::Keyboard::Scancode::Up:
-		isUpButtonPressed = false;
-		yMoveDirection = 0;
-		break;
-	case sf::Keyboard::Scancode::Down:
-		isDownButtonPressed = false;
-		yMoveDirection = 0;
-		break;
+		case sf::Keyboard::Scancode::Right:
+			isRightButtonPressed = false;
+			xMoveDirection = 0;
+			break;
+		case sf::Keyboard::Scancode::Left:
+			isLeftButtonPressed = false;
+			xMoveDirection = 0;
+			break;
+		case sf::Keyboard::Scancode::Up:
+			isUpButtonPressed = false;
+			yMoveDirection = 0;
+			break;
+		case sf::Keyboard::Scancode::Down:
+			isDownButtonPressed = false;
+			yMoveDirection = 0;
+			break;
+		case sf::Keyboard::Scancode::Space:
+			spaceship->stopShooting();
+			break;
 	}
 	controlSpaceship();
 }

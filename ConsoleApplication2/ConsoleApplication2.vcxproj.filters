@@ -96,6 +96,15 @@
     <ClCompile Include="GunBallCannon.cpp">
       <Filter>Pliki źródłowe\SpaceObject\Guns</Filter>
     </ClCompile>
+    <ClCompile Include="GunMachineGun.cpp">
+      <Filter>Pliki źródłowe\SpaceObject\Guns</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletSmall.cpp">
+      <Filter>Pliki źródłowe\SpaceObject\Bullets</Filter>
+    </ClCompile>
+    <ClCompile Include="Spaceship02.cpp">
+      <Filter>Pliki źródłowe\SpaceObject\Spaceships</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -154,6 +163,15 @@
     </ClInclude>
     <ClInclude Include="GunBallCannon.h">
       <Filter>Pliki nagłówkowe\SpaceObjects\Guns</Filter>
+    </ClInclude>
+    <ClInclude Include="GunMachineGun.h">
+      <Filter>Pliki nagłówkowe\SpaceObjects\Guns</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletSmall.h">
+      <Filter>Pliki nagłówkowe\SpaceObjects\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Spaceship02.h">
+      <Filter>Pliki nagłówkowe\SpaceObjects\Spaceships</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

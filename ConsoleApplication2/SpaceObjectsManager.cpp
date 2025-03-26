@@ -32,13 +32,12 @@ void SpaceObjectsManager::move()
 			}
 		}
 
-		if (obj->isAutoShooting) {
+		if (obj->isAutoShooting && obj->posX < window->getSize().x) {
 			obj->shoot();
 		}
 
 		if (obj->isShooting) {
 			shootingObjects.push_back(obj);
-			obj->isShooting = false;
 		}
 	}
 

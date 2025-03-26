@@ -13,12 +13,13 @@ using namespace std;
 class SpaceshipShooterDefault : public SpaceObject
 {
 public:
-	SpaceshipShooterDefault(std::string name = "Gunship");
+	SpaceshipShooterDefault(std::string name = "Shooter Default");
 	~SpaceshipShooterDefault() = default;
 	std::vector<SpaceObject*> getShootBullets();
 	virtual void move(sf::RenderWindow* window);
 	void addGun(std::string gunCode);
 	void setActiveGun(std::string gunCode);
-	std::unordered_map<std::string, GunDefault*> guns;	
+	std::unordered_map<std::string, GunDefault*> guns;
+	std::vector<std::string> gunsOrder;
 };
 

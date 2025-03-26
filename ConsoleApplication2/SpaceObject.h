@@ -26,6 +26,7 @@ public:
 	bool hasCollision(SpaceObject* obj);
 	virtual void onCollision(SpaceObject* obj);
 	void shoot();
+	void stopShooting();
 	void init();
 	bool isEnemy = true;
 	bool isAutoShooting = false;
@@ -42,6 +43,7 @@ protected:
 	int maxSpeed = 10;
 	float speedAcceleration = 1;
 	int collisionDamage = 10;
+	sf::Color color = sf::Color(0, 155, 0);
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 private:
 	float speed = 0;

@@ -12,7 +12,12 @@ SpaceshipShooterDefault::SpaceshipShooterDefault(std::string name) : SpaceObject
 
 std::vector<SpaceObject*> SpaceshipShooterDefault::getShootBullets() {
 	if (guns.find(activeGun) != guns.end()) {
-		return guns[activeGun]->getShootBullets(posX, posY);
+		GunDefault* gun = guns[activeGun];
+		std::vector<SpaceObject*> bullets = gun->getShootBullets(posX, posY);
+		if (!gun->isShooting) {
+			stopShooting();
+		}
+		return bullets;
 	}
 	return SpaceObject::getShootBullets();
 }
@@ -27,6 +32,7 @@ void SpaceshipShooterDefault::addGun(std::string gunCode)
 	GunDefault* newGun = GunFactory::createObject(gunCode);
 	newGun->orientationX = orientationX;
 	newGun->isEnemy = isEnemy;
+	gunsOrder.push_back(gunCode);
 	guns[gunCode] = newGun;
 }
 

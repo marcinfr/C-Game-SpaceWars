@@ -106,7 +106,7 @@ void SpaceObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	} else {
 		sf::RectangleShape shape({ (float)width, (float)height });
 		shape.setPosition({ posX - (width / 2), posY - (height / 2)});
-		shape.setFillColor(sf::Color(0, 155, 0));
+		shape.setFillColor(color);
 		target.draw(shape);
 	}
 
@@ -120,12 +120,19 @@ void SpaceObject::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	*/
 }
 std::vector<SpaceObject*> SpaceObject::getShootBullets() {
+	stopShooting();
 	std::vector<SpaceObject*> bullets;
 	return bullets;
 }
+
 void SpaceObject::shoot()
 {
 	this->isShooting = true;
+}
+
+void SpaceObject::stopShooting()
+{
+	this->isShooting = false;
 }
 
 void SpaceObject::addGun(std::string gunCode)

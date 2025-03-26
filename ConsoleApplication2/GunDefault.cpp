@@ -10,6 +10,11 @@ void GunDefault::setBulletType(std::string bulletType)
 	this->bulletType = bulletType;
 }
 
+void GunDefault::setCooldown(int cooldown)
+{
+	this->cooldown = cooldown;
+}
+
 std::vector<SpaceObject*> GunDefault::getShootBullets(int x, int y)
 {
 	std::vector<SpaceObject*> bullets;

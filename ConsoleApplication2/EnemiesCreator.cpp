@@ -2,6 +2,7 @@
 #include "Helpers.h"
 #include "SpaceshipMeteor.h"
 #include "SpaceshipShooterDefault.h"
+#include "Spaceship02.h"
 
 EnemiesCreator::EnemiesCreator(sf::RenderWindow* window, SpaceObjectsManager* spaceObjectManager)
 {
@@ -28,9 +29,9 @@ SpaceObject* EnemiesCreator::getNewRandomEnemy()
 {
 	int posX = window->getSize().x;
 	int posY = RandomHelper::getInteger(0, window->getSize().y);
-	int enemyType = RandomHelper::getInteger(0, 100);
+	int enemyType = RandomHelper::getInteger(0, 10 * stage);
 	SpaceObject* enemy = NULL;
-	if (enemyType < 50) {
+	if (enemyType < 15) {
 		enemy = new SpaceshipShooterDefault();
 		if (stage > 6) {
 			enemy->moveVector[1] = RandomHelper::getInteger(-2, 2);
@@ -40,8 +41,12 @@ SpaceObject* EnemiesCreator::getNewRandomEnemy()
 		} else {
 			enemy->addGun("double_gun");
 		}
-	}
-	else {
+	} else if (stage > 3 && enemyType < 50) {
+		enemy = new Spaceship02();
+		//enemy->moveVector[0] = -4;
+		enemy->moveVector[1] = (1 - (2 * RandomHelper::getInteger(0, 1))) * 4;
+		enemy->addGun("machine_gun");
+	} else {
 		enemy = new SpaceshipMeteor();
 	}
 	enemy->posX = posX + enemy->width;

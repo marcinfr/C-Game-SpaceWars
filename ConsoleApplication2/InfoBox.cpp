@@ -33,7 +33,8 @@ void InfoBox::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	int xOffset = 10;
 	int yOffset = window->getSize().y - 10 - gunIconSize;
 	sf::Color color;
-	for (const auto& [key, gun] : player->spaceship->guns) {
+	for (const auto& key : player->spaceship->gunsOrder) {
+		auto gun = player->spaceship->guns[key];
 		color = sf::Color(100, 100, 100);
 		if (key == player->spaceship->activeGun) {
 			color = sf::Color::White;
