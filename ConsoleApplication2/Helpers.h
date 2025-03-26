@@ -37,10 +37,10 @@ class Timer
 {
 public:
 	Timer();
-	long getTimestamp();
+	auto getTimestamp();
 	void setTime(double seconds);
 	bool hasElapsed();
 private:
-	int time = 0;
-	long startTime = 0;
+	double time = 0;
+	long long startTime = 0;
 };

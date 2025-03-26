@@ -1,6 +1,7 @@
 #include "Helpers.h"
 #include <chrono>
 #include <iostream>
+#include <ctime>
 
 int RandomHelper::getInteger(int from, int to)
 {
@@ -59,7 +60,7 @@ Timer::Timer()
 	startTime = 0;
 }
 
-long Timer::getTimestamp()
+auto Timer::getTimestamp()
 {
 	auto now = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch());
@@ -69,14 +70,13 @@ long Timer::getTimestamp()
 void Timer::setTime(double seconds)
 {
 	startTime = getTimestamp();
-	time = (int) (seconds * 1000);
+	time = seconds * 1000;
 }
 
 bool Timer::hasElapsed()
 {
 	if (startTime > 0) {
-		long timestamp = getTimestamp();
-		if (startTime < timestamp - time) {
+		if (startTime < getTimestamp() - time) {
 			return true;
 		}
 		return false;
